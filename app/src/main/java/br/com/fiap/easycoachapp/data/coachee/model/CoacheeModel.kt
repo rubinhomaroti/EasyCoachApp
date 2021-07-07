@@ -6,7 +6,7 @@ import br.com.fiap.easycoachapp.data.user.model.UserModel
 import java.util.Date
 
 class CoacheeModel(
-    id: Int,
+    uid: String,
     name: String,
     birthDate: Date,
     sex: Char,
@@ -16,5 +16,5 @@ class CoacheeModel(
     password: String,
     val sessions: ArrayList<SessionModel>?,
     val coachs: ArrayList<CoachModel>?
-) : UserModel(id, name, birthDate, sex, cpf, contactNumber, email, password) {
+) : UserModel(uid, name, birthDate, sex, cpf, contactNumber, email, password) {
 }
