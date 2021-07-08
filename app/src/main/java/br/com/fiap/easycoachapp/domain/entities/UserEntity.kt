@@ -1,8 +1,8 @@
-package br.com.fiap.easycoachapp.data.user.model
+package br.com.fiap.easycoachapp.domain.entities
 
 import java.util.Date
 
-abstract class UserModel (
+abstract class UserEntity (
     val uid: String,
     val name: String,
     val birthDate: Date,

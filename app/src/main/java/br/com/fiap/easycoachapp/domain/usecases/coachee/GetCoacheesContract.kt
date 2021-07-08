@@ -1,8 +1,8 @@
 package br.com.fiap.easycoachapp.domain.usecases.coachee
 
-import br.com.fiap.easycoachapp.data.coach.model.CoachModel
-import br.com.fiap.easycoachapp.data.coachee.model.CoacheeModel
+import br.com.fiap.easycoachapp.domain.entities.CoachEntity
+import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 
 interface GetCoacheesContract {
-    fun execute(coach: CoachModel, onResult: (ArrayList<CoacheeModel>) -> Unit)
+    fun execute(coach: CoachEntity, onResult: (ArrayList<CoacheeEntity>) -> Unit)
 }

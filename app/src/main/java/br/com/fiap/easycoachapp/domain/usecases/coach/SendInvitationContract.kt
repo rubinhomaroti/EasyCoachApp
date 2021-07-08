@@ -1,11 +1,11 @@
 package br.com.fiap.easycoachapp.domain.usecases.coach
 
-import br.com.fiap.easycoachapp.data.coach.model.CoachModel
-import br.com.fiap.easycoachapp.data.coachee.model.CoacheeModel
-import br.com.fiap.easycoachapp.data.session.model.SessionModel
+import br.com.fiap.easycoachapp.domain.entities.CoachEntity
+import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
+import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 
 interface SendInvitationContract {
-    fun execute(fromCoach: CoachModel,
-                toCoachee: CoacheeModel,
-                sessionInvitation: SessionModel)
+    fun execute(fromCoach: CoachEntity,
+                toCoachee: CoacheeEntity,
+                sessionInvitation: SessionEntity)
 }

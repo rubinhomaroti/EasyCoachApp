@@ -1,9 +1,9 @@
 package br.com.fiap.easycoachapp.domain.usecases.sessionPackage
 
-import br.com.fiap.easycoachapp.data.coach.model.CoachModel
-import br.com.fiap.easycoachapp.data.sessionPackage.model.SessionPackageModel
+import br.com.fiap.easycoachapp.domain.entities.CoachEntity
+import br.com.fiap.easycoachapp.domain.entities.SessionPackageEntity
 
 interface GetSessionPackagesContract {
-    fun execute(coach: CoachModel,
-                onResult: (ArrayList<SessionPackageModel>) -> Unit)
+    fun execute(coach: CoachEntity,
+                onResult: (ArrayList<SessionPackageEntity>) -> Unit)
 }

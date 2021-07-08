@@ -1,12 +1,12 @@
 package br.com.fiap.easycoachapp.domain.usecases.session
 
-import br.com.fiap.easycoachapp.data.coachee.model.CoacheeModel
-import br.com.fiap.easycoachapp.data.session.model.SessionModel
-import br.com.fiap.easycoachapp.data.specialty.model.SpecialtyModel
+import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
+import br.com.fiap.easycoachapp.domain.entities.SessionEntity
+import br.com.fiap.easycoachapp.domain.entities.SpecialtyEntity
 
 interface EditSessionContract {
-    fun execute(session: SessionModel,
-                specialty: SpecialtyModel,
-                coachee: CoacheeModel
+    fun execute(session: SessionEntity,
+                specialty: SpecialtyEntity,
+                coachee: CoacheeEntity
     )
 }

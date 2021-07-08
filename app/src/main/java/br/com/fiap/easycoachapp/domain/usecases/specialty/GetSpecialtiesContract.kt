@@ -1,7 +1,7 @@
 package br.com.fiap.easycoachapp.domain.usecases.specialty
 
-import br.com.fiap.easycoachapp.data.specialty.model.SpecialtyModel
+import br.com.fiap.easycoachapp.domain.entities.SpecialtyEntity
 
 interface GetSpecialtiesContract {
-    fun execute(onResult: (ArrayList<SpecialtyModel>) -> Unit)
+    fun execute(onResult: (ArrayList<SpecialtyEntity>) -> Unit)
 }

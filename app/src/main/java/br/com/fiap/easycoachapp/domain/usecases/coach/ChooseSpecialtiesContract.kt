@@ -1,9 +1,9 @@
 package br.com.fiap.easycoachapp.domain.usecases.coach
 
-import br.com.fiap.easycoachapp.data.coach.model.CoachModel
-import br.com.fiap.easycoachapp.data.specialty.model.SpecialtyModel
+import br.com.fiap.easycoachapp.domain.entities.CoachEntity
+import br.com.fiap.easycoachapp.domain.entities.SpecialtyEntity
 
 interface ChooseSpecialtiesContract {
-    fun execute(coach: CoachModel,
-                specialties: ArrayList<SpecialtyModel>)
+    fun execute(coach: CoachEntity,
+                specialties: ArrayList<SpecialtyEntity>)
 }
