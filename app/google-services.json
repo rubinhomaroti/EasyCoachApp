@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1019420824123",
+    "project_id": "easycoachapp-a9f43",
+    "storage_bucket": "easycoachapp-a9f43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019420824123:android:9d7a6624a27a047a51821e",
+        "android_client_info": {
+          "package_name": "br.com.fiap.easycoachapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019420824123-r43m13peeq1fecc64gopmf966ni1698e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbwcvCmSvHm0ZKLdCW044DW0-7QczStlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019420824123-r43m13peeq1fecc64gopmf966ni1698e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
