@@ -35,6 +35,9 @@ class DoSignUp(
                                 onSuccessListener()
                             }
                         }
+                        .addOnFailureListener {
+                            onFailureListener(DomainError.SIGN_UP_ERROR)
+                        }
                 }
                 .addOnFailureListener {
                     onFailureListener(DomainError.SIGN_UP_ERROR)
