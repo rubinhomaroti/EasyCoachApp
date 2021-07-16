@@ -5,8 +5,7 @@ import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.entities.SpecialtyEntity
 
 interface EditSessionContract {
-    fun execute(session: SessionEntity,
-                specialty: SpecialtyEntity,
-                coachee: CoacheeEntity
+    fun execute(
+        session: SessionEntity
     )
 }
