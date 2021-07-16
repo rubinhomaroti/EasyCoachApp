@@ -18,8 +18,8 @@ class ChooseSpecialties (
             .whereEqualTo("uid", coach.uid)
             .get()
             .addOnSuccessListener { documents ->
-                val coach = documents.firstOrNull()
-                coach?.reference?.update("specialties", specialties)
+                val coachFirestore = documents.firstOrNull()
+                coachFirestore?.reference?.update("specialties", specialties)
             }
     }
 }
