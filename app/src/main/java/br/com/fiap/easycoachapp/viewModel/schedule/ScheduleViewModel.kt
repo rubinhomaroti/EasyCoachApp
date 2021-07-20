@@ -32,9 +32,7 @@ class ScheduleViewModel(
     }
 
     fun onEditScheduledSessionPressed(selectedSession: SessionEntity) {
-        if (contract.requestConfirmation()) {
-            editSession.execute(selectedSession)
-        }
+        contract.goToScheduledSessionDetails(selectedSession)
     }
 
     fun onDeleteScheduledSessionPressed(selectedSession: SessionEntity) {
