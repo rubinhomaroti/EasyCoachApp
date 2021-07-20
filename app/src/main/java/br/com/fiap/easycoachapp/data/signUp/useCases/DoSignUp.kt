@@ -51,36 +51,38 @@ class DoSignUp(
         val currentUser = auth.currentUser
         when (type) {
             COACH -> {
+                val currentCoach = user as CoachEntity
                 val coach = CoachEntity(
                     uid = currentUser!!.uid,
-                    email = user.email,
-                    password = user.password,
-                    name = user.name,
-                    birthDate = user.birthDate,
-                    sex = user.sex,
-                    cpf = user.cpf,
-                    contactNumber = user.contactNumber,
-                    cancellationFee = 0.10F,
-                    cnpj = null,
-                    coachees = null,
-                    sessionPackages = null,
-                    sessions = null,
-                    specialties = null
+                    email = currentCoach.email,
+                    password = currentCoach.password,
+                    name = currentCoach.name,
+                    birthDate = currentCoach.birthDate,
+                    sex = currentCoach.sex,
+                    cpf = currentCoach.cpf,
+                    contactNumber = currentCoach.contactNumber,
+                    cancellationFee = currentCoach.cancellationFee,
+                    cnpj = currentCoach.cnpj,
+                    coachees = currentCoach.coachees,
+                    sessionPackages = currentCoach.sessionPackages,
+                    sessions = currentCoach.sessions,
+                    specialties = currentCoach.specialties
                 )
                 return db.collection("coachs").add(coach)
             }
             COACHEE -> {
+                val currentCoachee = user as CoacheeEntity
                 val coachee = CoacheeEntity(
                     uid = currentUser!!.uid,
-                    email = user.email,
-                    password = user.password,
-                    name = user.name,
-                    birthDate = user.birthDate,
-                    sex = user.sex,
-                    cpf = user.cpf,
-                    contactNumber = user.contactNumber,
-                    sessions = null,
-                    coachs = null
+                    email = currentCoachee.email,
+                    password = currentCoachee.password,
+                    name = currentCoachee.name,
+                    birthDate = currentCoachee.birthDate,
+                    sex = currentCoachee.sex,
+                    cpf = currentCoachee.cpf,
+                    contactNumber = currentCoachee.contactNumber,
+                    sessions = currentCoachee.sessions,
+                    coachs = currentCoachee.coachs
                 )
                 return db.collection("coachees").add(coachee)
             }
