@@ -18,8 +18,8 @@ class SendInvitation (
         db.collection("coachs")
             .whereEqualTo("uid", fromCoach.uid)
             .get()
-            .addOnSuccessListener { documents ->
-                val coach = documents.firstOrNull()
+            .addOnSuccessListener { coachDocuments ->
+                val coach = coachDocuments.firstOrNull()
                 if (coach != null) {
                     val gson = Gson()
                     val jsonDataSnapshot = gson.toJson(coach.data)
@@ -31,8 +31,8 @@ class SendInvitation (
                 db.collection("coachees")
                     .whereEqualTo("uid", toCoachee.uid)
                     .get()
-                    .addOnSuccessListener { documents ->
-                        val coachee = documents.firstOrNull()
+                    .addOnSuccessListener { coacheeDocuments ->
+                        val coachee = coacheeDocuments.firstOrNull()
                         if (coachee != null) {
                             val gson = Gson()
                             val jsonDataSnapshot = gson.toJson(coachee.data)
