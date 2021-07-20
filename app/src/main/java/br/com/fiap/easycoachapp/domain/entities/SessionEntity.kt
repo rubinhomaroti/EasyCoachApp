@@ -3,7 +3,7 @@ package br.com.fiap.easycoachapp.domain.entities
 import java.util.Date
 
 class SessionEntity (
-    val id: Int,
+    val uid: String,
     val scheduledDateTimeStart: Date,
     val scheduledDateTimeEnd: Date,
     val sessionNumber: Int,

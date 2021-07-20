@@ -11,7 +11,7 @@ class EditSession (
         session: SessionEntity
     ) {
         db.collection("sessions")
-            .whereEqualTo("id",session.id)
+            .whereEqualTo("uid",session.uid)
             .get()
             .addOnSuccessListener { documents ->
                 val updateSession = documents.firstOrNull()
