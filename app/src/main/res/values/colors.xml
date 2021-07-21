@@ -10,4 +10,6 @@
     <color name="dark_blue">#0A087B</color>
     <color name="light_blue">#98B1D6</color>
     <color name="fixText_blue">#1F529F</color>
+    <color name="bold_blue">#0A087B</color>
+    <color name="btn_convite">#0A087B</color>
 </resources>
