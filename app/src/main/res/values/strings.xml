@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EasyCoachApp</string>
+    <string name="teste"><u>Teste de texto sublinhado!</u></string>
 </resources>
