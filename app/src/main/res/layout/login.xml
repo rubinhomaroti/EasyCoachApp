@@ -7,14 +7,24 @@
     tools:context=".ui.signUp.LoginActivity">
 
     <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Entrar com:"
+        android:textColor="@color/fixText_blue"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="553dp" />
+
+    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
         android:text="Esqueceu sua senha?"
         android:textColor="@color/fixText_blue"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="449dp" />
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="407dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -23,8 +33,8 @@
         android:fontFamily="@font/roboto"
         android:text="Novo por aqui? Cadastre-se"
         android:textColor="@color/fixText_blue"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="545dp" />
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="499dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -34,7 +44,7 @@
         android:text="Senha"
         android:textColor="@color/fixText_blue"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="349dp" />
+        tools:layout_editor_absoluteY="320dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -43,8 +53,8 @@
         android:fontFamily="@font/roboto"
         android:text="E-mail"
         android:textColor="@color/fixText_blue"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="233dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="234dp" />
 
     <Button
         android:id="@+id/button"
@@ -53,28 +63,28 @@
         android:backgroundTint="@color/btn_convite"
         android:fontFamily="@font/nunito_bold"
         android:text="ENTRAR"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="484dp" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="367dp"
-        android:layout_height="52dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
-        android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="383dp" />
+        tools:layout_editor_absoluteY="442dp" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="367dp"
-        android:layout_height="52dp"
+        android:layout_width="336dp"
+        android:layout_height="38dp"
         android:background="@drawable/bg_edittext"
         android:ems="10"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="265dp" />
+        tools:layout_editor_absoluteY="264dp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress3"
+        android:layout_width="336dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_edittext"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="357dp" />
 
     <ImageView
         android:id="@+id/imageView"
