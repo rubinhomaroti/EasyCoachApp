@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,169 +8,222 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="71dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
-        <TextView
-            android:id="@+id/tv_NovaSessao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_bold"
-            android:text="@string/txt_novasessao"
-            android:textAlignment="center"
-            android:textColor="@color/dark_blue"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="121dp"
-            tools:layout_editor_absoluteY="16dp" />
+            <TextView
+                android:id="@+id/tv_NovaSessao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="122dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="122dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/txt_novasessao"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_DataSessao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ListView
-            android:id="@+id/_dynamicNdaSessao"
-            android:layout_width="171dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_edittext"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="99dp" />
+            <ListView
+                android:id="@+id/_dynamicNdaSessao"
+                android:layout_width="170dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_edittext"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                tools:layout_editor_absoluteY="99dp" />
 
-        <TextView
-            android:id="@+id/tv_Coachee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_coachee"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="160dp" />
+            <TextView
+                android:id="@+id/tv_Coachee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_coachee"
+                android:textColor="@color/fixText_blue"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="160dp" />
 
-        <TextView
-            android:id="@+id/tv_Especialidade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_especialidade"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="160dp" />
+            <TextView
+                android:id="@+id/tv_Especialidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_especialidade"
+                android:textColor="@color/fixText_blue"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                tools:layout_editor_absoluteY="160dp" />
 
-        <EditText
-            android:id="@+id/editText_Titulo"
-            android:layout_width="367dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_edittext"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="280dp" />
+            <EditText
+                android:id="@+id/editText_Titulo"
+                android:layout_width="383dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_edittext"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="278dp" />
 
-        <TextView
-            android:id="@+id/tv_DataSessao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_datasessao"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="23dp"
-            tools:layout_editor_absoluteY="70dp" />
+            <TextView
+                android:id="@+id/tv_DataSessao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_datasessao"
+                android:textColor="@color/fixText_blue"
 
-        <TextView
-            android:id="@+id/tv_Titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_titulo"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="252dp" />
+                app:layout_constraintEnd_toStartOf="@+id/tv_NdaSessao"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="66dp" />
 
-        <TextView
-            android:id="@+id/tv_NdaSessao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_numdasessao"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="70dp" />
+            <TextView
+                android:id="@+id/tv_Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_titulo"
+                android:textColor="@color/fixText_blue"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="251dp" />
 
-        <TextView
-            android:id="@+id/tv_Descricao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/txt_descricao"
-            android:textColor="@color/fixText_blue"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="347dp" />
+            <TextView
+                android:id="@+id/tv_NdaSessao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_numdasessao"
+                android:textColor="@color/fixText_blue"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tv_DataSessao"
+                tools:layout_editor_absoluteY="66dp" />
 
-        <EditText
-            android:id="@+id/editText_Descricao"
-            android:layout_width="367dp"
-            android:layout_height="84dp"
-            android:background="@drawable/bg_edittext"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="375dp" />
+            <TextView
+                android:id="@+id/tv_Descricao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/txt_descricao"
+                android:textColor="@color/fixText_blue"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="347dp" />
 
-        <EditText
-            android:id="@+id/editText_Meeting"
-            android:layout_width="367dp"
-            android:layout_height="51dp"
-            android:background="@drawable/bg_edittext"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="475dp" />
+            <EditText
+                android:id="@+id/editText_Descricao"
+                android:layout_width="380dp"
+                android:layout_height="82dp"
+                android:background="@drawable/bg_edittext"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="375dp" />
+
+            <EditText
+                android:id="@+id/editText_Meeting"
+                android:layout_width="380dp"
+                android:layout_height="51dp"
+                android:background="@drawable/bg_edittext"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="475dp" />
 
             <CheckBox
                 android:id="@+id/checkBox_TxCancelamento"
-                android:layout_width="366dp"
+                android:layout_width="380dp"
                 android:layout_height="36dp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="@string/txt_cobrartx"
                 android:textAlignment="center"
                 android:textColor="@color/bold_blue"
-                tools:layout_editor_absoluteX="22dp"
-                tools:layout_editor_absoluteY="551dp" />
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="550dp" />
 
             <Spinner
-            android:id="@+id/spinner_Coachee"
-            android:layout_width="170dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_spinnertext"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="188dp" />
+                android:id="@+id/spinner_Coachee"
+                android:layout_width="170dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_spinnertext"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="188dp" />
 
-        <Spinner
-            android:id="@+id/spinner_Especialidade"
-            android:layout_width="169dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_spinnertext"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="188dp" />
+            <Spinner
+                android:id="@+id/spinner_Especialidade"
+                android:layout_width="169dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_spinnertext"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                tools:layout_editor_absoluteY="188dp" />
 
             <Button
                 android:id="@+id/button_EnviarConvite"
-                android:layout_width="359dp"
+                android:layout_width="360dp"
                 android:layout_height="50dp"
                 android:backgroundTint="@color/btn_convite"
                 android:fontFamily="@font/nunito_bold"
                 android:text="@string/txt_enviarconvite"
-                tools:layout_editor_absoluteX="26dp"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineright"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
                 tools:layout_editor_absoluteY="606dp" />
 
             <EditText
-            android:id="@+id/editTextData"
-            android:layout_width="170dp"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_edittext"
-            android:cursorVisible="false"
-            android:ems="10"
-            android:inputType="date"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="99dp" />
+                android:id="@+id/editTextData"
+                android:layout_width="170dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_edittext"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintStart_toStartOf="@+id/guidelineleft"
+                tools:layout_editor_absoluteY="99dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineleft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="399dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinetop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp"
+                app:layout_constraintGuide_end="16dp" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="left" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
