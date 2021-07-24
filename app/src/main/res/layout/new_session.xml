@@ -130,8 +130,8 @@
                 android:layout_width="366dp"
                 android:layout_height="36dp"
                 android:fontFamily="@font/nunito_bold"
-                android:text="         COBRAR TAXA DE CANCELAMENTO?"
-                android:textAlignment="textStart"
+                android:text="@string/txt_cobrartx"
+                android:textAlignment="center"
                 android:textColor="@color/bold_blue"
                 tools:layout_editor_absoluteX="22dp"
                 tools:layout_editor_absoluteY="551dp" />
