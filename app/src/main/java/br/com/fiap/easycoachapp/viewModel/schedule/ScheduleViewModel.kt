@@ -5,26 +5,31 @@ import androidx.lifecycle.ViewModel
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
-import br.com.fiap.easycoachapp.domain.usecases.session.EditSessionContract
 import br.com.fiap.easycoachapp.domain.usecases.session.GetSessionsContract
+import java.util.Date
+import kotlin.collections.ArrayList
 
 class ScheduleViewModel(
     private val contract: ScheduleContract,
     private val getCurrentCoach: GetCurrentCoachContract,
     private val getSessions: GetSessionsContract,
-    private val editSession: EditSessionContract,
     private val deleteSession: DeleteSessionContract
 ) : ViewModel() {
     val sessions = MutableLiveData<ArrayList<SessionEntity>>()
 
     fun onCreate() {
+        onScheduleDateChanged(Date())
+    }
+
+    fun onScheduleDateChanged(selectedDate: Date) {
+        //TODO Adicionar a data no filtro do getSessions
         getCurrentCoach.execute({ coach ->
             getSessions.execute(coach,{ sessions ->
                 this.sessions.postValue(sessions)
             },
-            {contract.showErrorMessage()})
+                {contract.showErrorMessage()})
         },
-        { contract.showErrorMessage() })
+            { contract.showErrorMessage() })
     }
 
     fun onSchedulePressed() {

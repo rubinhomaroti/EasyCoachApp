@@ -4,8 +4,7 @@ import java.util.Date
 
 class SessionEntity (
     val uid: String,
-    val scheduledDateTimeStart: Date,
-    val scheduledDateTimeEnd: Date,
+    val scheduledDateTime: Date,
     val sessionNumber: Int,
     val title: String,
     val description: String?,
