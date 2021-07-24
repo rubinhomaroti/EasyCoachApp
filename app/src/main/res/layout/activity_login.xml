@@ -7,7 +7,7 @@
     tools:context=".ui.signUp.LoginActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_NovaSessao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
@@ -19,6 +19,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <ListView
+        android:id="@+id/_dynamicNdaSessao"
         android:layout_width="171dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_edittext"
@@ -26,7 +27,7 @@
         tools:layout_editor_absoluteY="99dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_Coachee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -36,7 +37,7 @@
         tools:layout_editor_absoluteY="160dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_Especialidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -46,7 +47,7 @@
         tools:layout_editor_absoluteY="160dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText_Titulo"
         android:layout_width="367dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_edittext"
@@ -66,7 +67,7 @@
         tools:layout_editor_absoluteY="70dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_Titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -76,7 +77,7 @@
         tools:layout_editor_absoluteY="252dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_NdaSessao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -86,7 +87,7 @@
         tools:layout_editor_absoluteY="70dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_Descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -96,7 +97,7 @@
         tools:layout_editor_absoluteY="347dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editText_Descricao"
         android:layout_width="367dp"
         android:layout_height="84dp"
         android:background="@drawable/bg_edittext"
@@ -106,7 +107,7 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_Meeting"
         android:layout_width="367dp"
         android:layout_height="51dp"
         android:background="@drawable/bg_edittext"
@@ -116,7 +117,7 @@
         tools:layout_editor_absoluteY="475dp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv_Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -126,7 +127,7 @@
         tools:layout_editor_absoluteY="538dp" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox_TxCancelamento"
         android:layout_width="366dp"
         android:layout_height="36dp"
         android:fontFamily="@font/nunito_bold"
@@ -137,7 +138,7 @@
         tools:layout_editor_absoluteY="628dp" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_Coachee"
         android:layout_width="170dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_spinnertext"
@@ -145,7 +146,7 @@
         tools:layout_editor_absoluteY="188dp" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner_Especialidade"
         android:layout_width="169dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_spinnertext"
@@ -153,7 +154,7 @@
         tools:layout_editor_absoluteY="188dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_EnviarConvite"
         android:layout_width="359dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/btn_convite"
@@ -163,7 +164,7 @@
         tools:layout_editor_absoluteY="669dp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editText_EmailAddress"
         android:layout_width="367dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_edittext"
@@ -173,7 +174,7 @@
         tools:layout_editor_absoluteY="565dp" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextData"
         android:layout_width="170dp"
         android:layout_height="52dp"
         android:background="@drawable/bg_edittext"
