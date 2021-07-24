@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="@string/@txt_datadasessao"
+            android:text="@string/txt_datasessao"
             android:textColor="@color/fixText_blue"
             tools:layout_editor_absoluteX="23dp"
             tools:layout_editor_absoluteY="70dp" />
