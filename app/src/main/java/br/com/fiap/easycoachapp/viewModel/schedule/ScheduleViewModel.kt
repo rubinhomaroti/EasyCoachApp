@@ -18,14 +18,17 @@ class ScheduleViewModel(
     val sessions = MutableLiveData<ArrayList<SessionEntity>>()
 
     fun onCreate() {
+
         onScheduleDateChanged(Date())
     }
 
     fun onScheduleDateChanged(selectedDate: Date) {
-        //TODO Adicionar a data no filtro do getSessions
+        this.sessions.value?.clear()
         getCurrentCoach.execute({ coach ->
             getSessions.execute(coach,{ sessions ->
-                this.sessions.postValue(sessions)
+                this.sessions.postValue(
+                    ArrayList(sessions.filter { sessionEntity -> sessionEntity.scheduledDateTime == selectedDate })
+                )
             },
                 {contract.showErrorMessage()})
         },

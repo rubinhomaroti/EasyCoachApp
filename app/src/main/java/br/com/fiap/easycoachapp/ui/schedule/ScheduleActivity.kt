@@ -37,10 +37,13 @@ class ScheduleActivity : AppCompatActivity() {
         cvSchedule.setOnDateChangeListener { cv, p1, p2, p3 ->
             viewModel.onScheduleDateChanged(Date(cv.date))
         }
+        cvSchedule.setOnClickListener {
+            viewModel.onSchedulePressed()
+        }
     }
 
     private fun setupViewModel() {
-        viewModel.sessions.observe(this, Observer {
+        viewModel.sessions.observe(this, {
             adapter.list = it
             adapter.notifyDataSetChanged()
         })
