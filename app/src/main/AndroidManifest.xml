@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyCoachApp">
+        <activity android:name=".main.MyApp" />
+        <activity android:name=".ui.login.LoginActivity"/>
         <activity android:name=".ui.schedule.ScheduleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MyApp" />
-        <activity android:name=".ui.signUp.LoginActivity">
-
-        </activity>
+        <activity android:name=".ui.session.register.NewSessionActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

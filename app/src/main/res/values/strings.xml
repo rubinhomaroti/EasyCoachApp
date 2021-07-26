@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">EasyCoachApp</string>
-    <string name="teste"><u>NOVA SESSÃO</u></string>
+    <string name="txt_novasessao"><u>NOVA SESSÃO</u></string>
+    <string name="txt_coachee">Coachee</string>
+    <string name="txt_especialidade">Especialidade</string>
+    <string name="txt_titulo">Título</string>
+    <string name="txt_datasessao">Data da Sessão</string>
+    <string name="txt_numdasessao">Num. da Sessao</string>
+    <string name="txt_descricao">Descrição</string>
+    <string name="txt_enviarconvite">ENVIAR CONVITE</string>
+    <string name="txt_cobrartx">         COBRAR TAXA DE CANCELAMENTO?</string>
     <string name="schedule"><u>AGENDA</u></string>
     <string name="next_sessions">Suas próximas sessões:</string>
 </resources>
