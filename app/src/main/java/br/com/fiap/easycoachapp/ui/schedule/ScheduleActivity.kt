@@ -1,14 +1,11 @@
 package br.com.fiap.easycoachapp.ui.schedule
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CalendarView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.fiap.easycoachapp.R
 import br.com.fiap.easycoachapp.databinding.ActivityScheduleBinding
@@ -18,8 +15,8 @@ import br.com.fiap.easycoachapp.ui.session.register.NewSessionActivity
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleContract
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleViewModel
 import kotlinx.android.synthetic.main.activity_schedule.*
-import org.koin.core.parameter.parametersOf
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import java.util.*
 
 class ScheduleActivity : AppCompatActivity(), ScheduleContract {
