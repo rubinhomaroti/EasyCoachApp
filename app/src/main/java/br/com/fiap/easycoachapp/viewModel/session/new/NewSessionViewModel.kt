@@ -19,8 +19,7 @@ class NewSessionViewModel(
     lateinit var sessionPackage: SessionPackageEntity
 
     var id = IdGenerator().generate()
-    var scheduledDateTimeStart: Date = Date()
-    var scheduledDateTimeEnd: Date = Date()
+    var scheduledDateTime: Date = Date()
     var sessionNumber = 1
     var title = ""
     var description = ""
@@ -43,8 +42,7 @@ class NewSessionViewModel(
         createSession.execute(
             SessionEntity(
                 id,
-                scheduledDateTimeStart,
-                scheduledDateTimeEnd,
+                scheduledDateTime,
                 sessionNumber,
                 title,
                 description,

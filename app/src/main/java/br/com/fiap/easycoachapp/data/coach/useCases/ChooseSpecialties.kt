@@ -1,4 +1,4 @@
-ackage br.com.fiap.easycoachapp.data.coach.useCases
+package br.com.fiap.easycoachapp.data.coach.useCases
 
 import br.com.fiap.easycoachapp.domain.entities.CoachEntity
 import br.com.fiap.easycoachapp.domain.entities.SpecialtyEntity

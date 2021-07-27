@@ -11,4 +11,10 @@
     <string name="txt_cobrartx">         COBRAR TAXA DE CANCELAMENTO?</string>
     <string name="schedule"><u>AGENDA</u></string>
     <string name="next_sessions">Suas próximas sessões:</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="sign_in">ENTRAR</string>
+    <string name="sign_up">Novo por aqui? Cadastre-se</string>
+    <string name="login_with">Entrar com:</string>
 </resources>
