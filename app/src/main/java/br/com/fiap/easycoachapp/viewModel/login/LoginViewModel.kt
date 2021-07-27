@@ -29,4 +29,8 @@ class LoginViewModel(
     fun onSignUpPressed() {
         contract.goToSignUpActivity()
     }
+
+    fun onForgotPasswordPressed() {
+        contract.goToForgotPassword()
+    }
 }

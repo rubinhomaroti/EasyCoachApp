@@ -4,4 +4,5 @@ interface LoginContract {
     fun goToHomeActivity()
     fun goToSignUpActivity()
     fun showErrorMessage()
+    fun goToForgotPassword()
 }

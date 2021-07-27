@@ -18,7 +18,6 @@ class ScheduleViewModel(
     val sessions = MutableLiveData<ArrayList<SessionEntity>>()
 
     fun onCreate() {
-
         onScheduleDateChanged(Date())
     }
 
