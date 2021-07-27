@@ -44,7 +44,7 @@ class ScheduleViewModel(
     }
 
     fun onDeleteScheduledSessionPressed(selectedSession: SessionEntity) {
-        if (contract.requestConfirmation()) {
+        if (contract.requestConfirmation("Deseja realmente cancelar a sessão?")) {
             deleteSession.execute(selectedSession)
         }
     }
