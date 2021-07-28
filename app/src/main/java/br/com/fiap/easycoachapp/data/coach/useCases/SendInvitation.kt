@@ -5,7 +5,6 @@ import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.SendInvitationContract
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 
 class SendInvitation (
     private val db: FirebaseFirestore
@@ -21,27 +20,15 @@ class SendInvitation (
             .addOnSuccessListener { coachDocuments ->
                 val coach = coachDocuments.firstOrNull()
                 if (coach != null) {
-                    val gson = Gson()
-                    val jsonDataSnapshot = gson.toJson(coach.data)
-                    val coachEntity = gson.fromJson(jsonDataSnapshot, CoachEntity::class.java)
-                    coachEntity.sessions?.add(sessionInvitation)
-                    coach.reference.set(coachEntity)
-                }
-
-                db.collection("coachees")
-                    .whereEqualTo("uid", toCoachee.uid)
-                    .get()
-                    .addOnSuccessListener { coacheeDocuments ->
-                        val coachee = coacheeDocuments.firstOrNull()
-                        if (coachee != null) {
-                            val gson = Gson()
-                            val jsonDataSnapshot = gson.toJson(coachee.data)
-                            val coacheeEntity =
-                                gson.fromJson(jsonDataSnapshot, CoacheeEntity::class.java)
-                            coacheeEntity.sessions?.add(sessionInvitation)
-                            coachee.reference.set(coacheeEntity)
-                        }
+                    val coachEntity = CoachEntity.fromJson(coach.data)
+                    val coachee = coachEntity.coachees?.firstOrNull { c -> c.uid == toCoachee.uid }
+                    if (coachee != null) {
+                        coachEntity.coachees.remove(coachee)
+                        coachee.sessions?.add(sessionInvitation)
+                        coachEntity.coachees.add(coachee)
+                        coach.reference.set(coachEntity)
                     }
+                }
             }
     }
 }

@@ -15,12 +15,9 @@ class CoachEntity (
     password: String?,
     val cnpj: String?,
     val cancellationFee: Double,
-    val sessions: ArrayList<SessionEntity>?,
     val specialties: ArrayList<SpecialtyEntity>?,
-    val coachees: ArrayList<CoacheeEntity>?,
-    val sessionPackages: ArrayList<SessionPackageEntity>?
+    val coachees: ArrayList<CoacheeEntity>?
 ) : UserEntity(uid, name, birthDate, sex, cpf, contactNumber, email, password) {
-
     companion object {
         fun fromJson(json: MutableMap<String, Any>) : CoachEntity {
             return CoachEntity(
@@ -34,10 +31,8 @@ class CoachEntity (
                 password = json["password"]?.toString(),
                 cnpj = json["cnpj"]?.toString(),
                 cancellationFee = json["cancellationFee"] as Double,
-                sessions = json["sessions"] as ArrayList<SessionEntity>?,
                 specialties = json["specialties"] as ArrayList<SpecialtyEntity>?,
-                coachees = json["coachees"] as ArrayList<CoacheeEntity>?,
-                sessionPackages = json["sessionPackages"] as ArrayList<SessionPackageEntity>?
+                coachees = json["coachees"] as ArrayList<CoacheeEntity>?
             )
         }
     }

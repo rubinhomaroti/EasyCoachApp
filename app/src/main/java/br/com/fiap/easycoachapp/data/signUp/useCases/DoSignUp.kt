@@ -1,11 +1,8 @@
 package br.com.fiap.easycoachapp.data.signUp.useCases
 
 import br.com.fiap.easycoachapp.domain.entities.CoachEntity
-import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.UserEntity
 import br.com.fiap.easycoachapp.domain.helpers.DomainError
-import br.com.fiap.easycoachapp.domain.helpers.UserType
-import br.com.fiap.easycoachapp.domain.helpers.UserType.*
 import br.com.fiap.easycoachapp.domain.usecases.signUp.DoSignUpContract
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +16,6 @@ class DoSignUp(
 ) : DoSignUpContract {
     override fun execute(
         user: UserEntity,
-        type: UserType,
         onSuccessListener: () -> Unit,
         onFailureListener: (DomainError) -> Unit
     ) {
@@ -31,7 +27,7 @@ class DoSignUp(
                         UserProfileChangeRequest.Builder().setDisplayName(user.name).build()
                     currentUser!!.updateProfile(userProfileChangeRequest)
                         .addOnCompleteListener {
-                            registerUserDetails(user, type).addOnCompleteListener {
+                            registerUserDetails(user).addOnCompleteListener {
                                 onSuccessListener()
                             }
                         }
@@ -47,45 +43,23 @@ class DoSignUp(
         }
     }
 
-    private fun registerUserDetails(user: UserEntity, type: UserType): Task<DocumentReference> {
+    private fun registerUserDetails(user: UserEntity): Task<DocumentReference> {
         val currentUser = auth.currentUser
-        when (type) {
-            COACH -> {
-                val currentCoach = user as CoachEntity
-                val coach = CoachEntity(
-                    uid = currentUser!!.uid,
-                    email = currentCoach.email,
-                    password = null,
-                    name = currentCoach.name,
-                    birthDate = currentCoach.birthDate,
-                    sex = currentCoach.sex,
-                    cpf = currentCoach.cpf,
-                    contactNumber = currentCoach.contactNumber,
-                    cancellationFee = currentCoach.cancellationFee,
-                    cnpj = currentCoach.cnpj,
-                    coachees = currentCoach.coachees,
-                    sessionPackages = currentCoach.sessionPackages,
-                    sessions = currentCoach.sessions,
-                    specialties = currentCoach.specialties
-                )
-                return db.collection("coachs").add(coach)
-            }
-            COACHEE -> {
-                val currentCoachee = user as CoacheeEntity
-                val coachee = CoacheeEntity(
-                    uid = currentUser!!.uid,
-                    email = currentCoachee.email,
-                    password = null,
-                    name = currentCoachee.name,
-                    birthDate = currentCoachee.birthDate,
-                    sex = currentCoachee.sex,
-                    cpf = currentCoachee.cpf,
-                    contactNumber = currentCoachee.contactNumber,
-                    sessions = currentCoachee.sessions,
-                    coachs = currentCoachee.coachs
-                )
-                return db.collection("coachees").add(coachee)
-            }
-        }
+        val currentCoach = user as CoachEntity
+        val coach = CoachEntity(
+            uid = currentUser!!.uid,
+            email = currentCoach.email,
+            password = null,
+            name = currentCoach.name,
+            birthDate = currentCoach.birthDate,
+            sex = currentCoach.sex,
+            cpf = currentCoach.cpf,
+            contactNumber = currentCoach.contactNumber,
+            cancellationFee = currentCoach.cancellationFee,
+            cnpj = currentCoach.cnpj,
+            coachees = currentCoach.coachees,
+            specialties = currentCoach.specialties
+        )
+        return db.collection("coachs").add(coach)
     }
 }

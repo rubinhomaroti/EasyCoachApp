@@ -2,6 +2,7 @@ package br.com.fiap.easycoachapp.viewModel.schedule
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
@@ -13,19 +14,19 @@ class ScheduleViewModel(
     private val getCurrentCoach: GetCurrentCoachContract,
     private val deleteSession: DeleteSessionContract
 ) : ViewModel() {
-    val sessions = MutableLiveData<ArrayList<SessionEntity>>()
+    val coachees = MutableLiveData<ArrayList<CoacheeEntity>>()
 
     fun onCreate() {
         onScheduleDateChanged(Date())
     }
 
     fun onScheduleDateChanged(selectedDate: Date) {
-        this.sessions.value?.clear()
+        this.coachees.value?.clear()
         getCurrentCoach.execute({ coach ->
-            if (coach.sessions != null && coach.sessions.isNotEmpty()) {
-                this.sessions.postValue(
-                    ArrayList(coach.sessions.filter { sessionEntity -> sessionEntity.scheduledDateTime == selectedDate })
-                )
+            val coacheesFound = coach.coachees?.filter { c -> c.sessions != null &&
+                                                              c.sessions.any { s -> s.scheduledDateTime == selectedDate }}
+            if (coacheesFound != null && coacheesFound.isNotEmpty()) {
+                coachees.postValue(ArrayList(coacheesFound))
             }
         },
         { contract.showErrorMessage() })

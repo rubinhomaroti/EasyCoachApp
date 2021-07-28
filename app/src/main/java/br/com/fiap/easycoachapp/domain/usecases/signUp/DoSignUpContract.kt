@@ -6,7 +6,6 @@ import br.com.fiap.easycoachapp.domain.helpers.UserType
 
 interface DoSignUpContract {
     fun execute(user: UserEntity,
-                type: UserType,
                 onSuccessListener: () -> Unit,
                 onFailureListener: (DomainError) -> Unit)
 }

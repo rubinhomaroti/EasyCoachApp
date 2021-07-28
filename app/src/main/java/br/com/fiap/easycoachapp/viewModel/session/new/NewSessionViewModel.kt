@@ -16,7 +16,6 @@ class NewSessionViewModel(
     lateinit var currentCoach: CoachEntity
     lateinit var selectedCoachee: CoacheeEntity
     lateinit var selectedSpecialty: SpecialtyEntity
-    lateinit var sessionPackage: SessionPackageEntity
 
     var id = IdGenerator().generate()
     var scheduledDateTime: Date = Date()
@@ -33,7 +32,6 @@ class NewSessionViewModel(
             currentCoach = coach
             coachees = coach.coachees
             specialties = coach.specialties
-            sessionPackage = coach.sessionPackages!!.first()
         },
         {contract.showErrorMessage()})
     }
@@ -48,10 +46,7 @@ class NewSessionViewModel(
                 description,
                 inviteUrl,
                 hasCancellationFee,
-                currentCoach,
-                selectedCoachee,
-                selectedSpecialty,
-                sessionPackage
+                selectedSpecialty.uid,
         ),
             {contract.goToHomeActivity()},
             {contract.showErrorMessage()})

@@ -46,7 +46,7 @@ class ScheduleActivity : AppCompatActivity(), ScheduleContract {
     }
 
     private fun setupViewModel() {
-        viewModel.sessions.observe(this, {
+        viewModel.coachees.observe(this, {
             adapter.list = it
             adapter.notifyDataSetChanged()
         })

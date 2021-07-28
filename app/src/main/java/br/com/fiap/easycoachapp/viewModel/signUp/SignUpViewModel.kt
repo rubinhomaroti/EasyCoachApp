@@ -38,8 +38,6 @@ class SignUpViewModel(
                 null,
                 0.1,
                 null,
-                null,
-                null,
                 null
             )
             UserType.COACHEE -> user = CoacheeEntity(
@@ -51,13 +49,11 @@ class SignUpViewModel(
                 contactNumber,
                 email,
                 password,
-                null,
                 null
             )
         }
         doSignUp.execute(
             user,
-            userType,
             {contract.goToHomeActivity()},
             {contract.showErrorMessage()})
     }
