@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.easycoachapp.R
 import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
+import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleViewModel
 
 class ScheduledSessionsAdapter(

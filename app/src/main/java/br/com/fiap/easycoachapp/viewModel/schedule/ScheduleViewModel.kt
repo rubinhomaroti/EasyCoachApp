@@ -6,8 +6,10 @@ import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
-import java.util.Date
+import org.joda.time.DateTimeComparator
+import java.util.*
 import kotlin.collections.ArrayList
+
 
 class ScheduleViewModel(
     private val contract: ScheduleContract,
@@ -21,12 +23,25 @@ class ScheduleViewModel(
     }
 
     fun onScheduleDateChanged(selectedDate: Date) {
-        this.coachees.value?.clear()
+        val dateTimeComparator = DateTimeComparator.getDateOnlyInstance()
+
         getCurrentCoach.execute({ coach ->
-            val coacheesFound = coach.coachees?.filter { c -> c.sessions != null &&
-                                                              c.sessions.any { s -> s.scheduledDateTime == selectedDate }}
-            if (coacheesFound != null && coacheesFound.isNotEmpty()) {
-                coachees.postValue(ArrayList(coacheesFound))
+            if (coach.coachees != null && coach.coachees.isNotEmpty()) {
+                val coacheesFound = ArrayList<CoacheeEntity>()
+
+                coach.coachees.forEach { coachee ->
+                    val sessions = coachee.sessions?.filter {
+                        dateTimeComparator.compare(it.scheduledDateTime, selectedDate) == 0
+                    }
+                    if (sessions != null && sessions.isNotEmpty()){
+                        coacheesFound.add(coachee)
+                    }
+                }
+
+                if (coacheesFound.isNotEmpty()) {
+                    this.coachees.value?.clear()
+                    this.coachees.postValue(coacheesFound)
+                }
             }
         },
         { contract.showErrorMessage() })

@@ -37,8 +37,9 @@ class ScheduleActivity : AppCompatActivity(), ScheduleContract {
     private fun setupView() {
         rvSessions.adapter = adapter
         rvSessions.layoutManager = LinearLayoutManager(this)
-        cvSchedule.setOnDateChangeListener { cv, p1, p2, p3 ->
-            viewModel.onScheduleDateChanged(Date(cv.date))
+        cvSchedule.setOnDateChangeListener { cv, year, month, dayOfMonth ->
+            val date = GregorianCalendar(year, month, dayOfMonth)
+            viewModel.onScheduleDateChanged(date.time)
         }
         cvSchedule.setOnClickListener {
             viewModel.onSchedulePressed()

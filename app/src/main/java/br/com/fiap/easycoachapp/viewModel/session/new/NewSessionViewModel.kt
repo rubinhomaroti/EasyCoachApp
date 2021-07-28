@@ -19,7 +19,7 @@ class NewSessionViewModel(
 
     var id = IdGenerator().generate()
     var scheduledDateTime: Date = Date()
-    var sessionNumber = 1
+    var sessionNumber = 1L
     var title = ""
     var description = ""
     var inviteUrl = ""

@@ -64,5 +64,7 @@ dependencies {
     implementation "io.insert-koin:koin-core:2.2.3"
     implementation "io.insert-koin:koin-androidx-viewmodel:2.2.3"
 
+    implementation 'joda-time:joda-time:2.9.9'
+
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC3'
 }

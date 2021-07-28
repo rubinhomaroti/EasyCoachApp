@@ -26,8 +26,20 @@ class CoacheeEntity (
                 contactNumber = json["contactNumber"]?.toString(),
                 email = json["email"].toString(),
                 password = json["password"]?.toString(),
-                sessions = json["sessions"] as ArrayList<SessionEntity>?
+                sessions = getSessionsFromJson(json["sessions"])
             )
+        }
+
+        private fun getSessionsFromJson(json: Any?) : ArrayList<SessionEntity> {
+            val array = json as ArrayList<*>
+            val sessions = ArrayList<SessionEntity>()
+            array.forEach {
+                if (it is HashMap<*, *>) {
+                    val hashMap = it as MutableMap<String, Any>
+                    sessions.add(SessionEntity.fromJson(hashMap))
+                }
+            }
+            return sessions
         }
     }
 }

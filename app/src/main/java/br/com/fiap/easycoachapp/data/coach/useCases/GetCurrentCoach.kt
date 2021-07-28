@@ -27,8 +27,6 @@ class GetCurrentCoach(
                 .addOnSuccessListener { documents ->
                     val coach = documents.firstOrNull()
                     if (coach != null) {
-                        val gson = Gson()
-                        val jsonDataSnapshot = gson.toJson(coach.data)
                         onResult(CoachEntity.fromJson(coach.data))
                     } else {
                         onFailure(DomainError.AUTH_ERROR)

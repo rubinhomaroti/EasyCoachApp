@@ -31,9 +31,33 @@ class CoachEntity (
                 password = json["password"]?.toString(),
                 cnpj = json["cnpj"]?.toString(),
                 cancellationFee = json["cancellationFee"] as Double,
-                specialties = json["specialties"] as ArrayList<SpecialtyEntity>?,
-                coachees = json["coachees"] as ArrayList<CoacheeEntity>?
+                specialties = getSpecialtiesFromJson(json["specialties"]),
+                coachees = getCoacheesFromJson(json["coachees"])
             )
+        }
+
+        private fun getCoacheesFromJson(json: Any?) : ArrayList<CoacheeEntity> {
+            val array = json as ArrayList<*>
+            val coachees = ArrayList<CoacheeEntity>()
+            array.forEach {
+                if (it is HashMap<*, *>) {
+                    val hashMap = it as MutableMap<String, Any>
+                    coachees.add(CoacheeEntity.fromJson(hashMap))
+                }
+            }
+            return coachees
+        }
+
+        private fun getSpecialtiesFromJson(json: Any?) : ArrayList<SpecialtyEntity> {
+            val array = json as ArrayList<*>
+            val specialties = ArrayList<SpecialtyEntity>()
+            array.forEach {
+                if (it is HashMap<*, *>) {
+                    val hashMap = it as MutableMap<String, Any>
+                    specialties.add(SpecialtyEntity.fromJson(hashMap))
+                }
+            }
+            return specialties
         }
     }
 }
