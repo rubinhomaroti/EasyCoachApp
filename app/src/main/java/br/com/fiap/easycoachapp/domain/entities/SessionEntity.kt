@@ -14,6 +14,8 @@ class SessionEntity (
     val specialtyUid: String
 )
 {
+    var coachee: CoacheeEntity? = null
+
     companion object {
         fun fromJson(json: MutableMap<String, Any>) : SessionEntity {
             return SessionEntity(

@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.easycoachapp.R
-import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleViewModel
 
 class ScheduledSessionsAdapter(
     val viewModel: ScheduleViewModel
 ) : RecyclerView.Adapter<ScheduledSessionsViewHolder>() {
-    var list: ArrayList<CoacheeEntity> = arrayListOf()
+    var list: ArrayList<SessionEntity> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduledSessionsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.session_card, parent, false)

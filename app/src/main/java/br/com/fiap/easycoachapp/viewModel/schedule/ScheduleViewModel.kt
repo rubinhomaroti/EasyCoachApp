@@ -16,7 +16,7 @@ class ScheduleViewModel(
     private val getCurrentCoach: GetCurrentCoachContract,
     private val deleteSession: DeleteSessionContract
 ) : ViewModel() {
-    val coachees = MutableLiveData<ArrayList<CoacheeEntity>>()
+    val sessions = MutableLiveData<ArrayList<SessionEntity>>()
 
     fun onCreate() {
         onScheduleDateChanged(Date())
@@ -27,20 +27,19 @@ class ScheduleViewModel(
 
         getCurrentCoach.execute({ coach ->
             if (coach.coachees != null && coach.coachees.isNotEmpty()) {
-                val coacheesFound = ArrayList<CoacheeEntity>()
+                val sessionsFound = ArrayList<SessionEntity>()
+                this.sessions.postValue(sessionsFound)
 
                 coach.coachees.forEach { coachee ->
-                    val sessions = coachee.sessions?.filter {
-                        dateTimeComparator.compare(it.scheduledDateTime, selectedDate) == 0
-                    }
-                    if (sessions != null && sessions.isNotEmpty()){
-                        coacheesFound.add(coachee)
-                    }
-                }
+                    val s = coachee.sessions?.filter {
+                        dateTimeComparator.compare(it.scheduledDateTime, selectedDate) == 0 }
 
-                if (coacheesFound.isNotEmpty()) {
-                    this.coachees.value?.clear()
-                    this.coachees.postValue(coacheesFound)
+                    if (s != null && s.isNotEmpty()) {
+                        s.forEach {
+                            it.coachee = coachee
+                            sessionsFound.add(it)
+                        }
+                    }
                 }
             }
         },

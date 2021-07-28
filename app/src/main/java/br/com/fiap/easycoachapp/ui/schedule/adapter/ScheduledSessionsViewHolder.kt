@@ -3,24 +3,24 @@ package br.com.fiap.easycoachapp.ui.schedule.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.easycoachapp.R
-import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
+import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.session_card.view.*
+import java.text.SimpleDateFormat
 
 class ScheduledSessionsViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bind(viewModel: ScheduleViewModel, coachee: CoacheeEntity) {
-        coachee.sessions?.forEach { session ->
-            Picasso.get().load(R.drawable.coachee).into(itemView.ivCoacheePhoto)
-            itemView.tvScheduleTime.text = session.scheduledDateTime.toString()
-            Picasso.get().load(R.drawable.amor).into(itemView.ivSpecialty)
-            itemView.tvCoacheeName.text = coachee.name
-            itemView.btEdit.setOnClickListener{
-                viewModel.onEditScheduledSessionPressed(session)
-            }
-            itemView.btDelete.setOnClickListener{
-                viewModel.onDeleteScheduledSessionPressed(session)
-            }
+    fun bind(viewModel: ScheduleViewModel, session: SessionEntity) {
+        val formatter = SimpleDateFormat("HH:mm")
+        Picasso.get().load(R.drawable.coachee).into(itemView.ivCoacheePhoto)
+        itemView.tvScheduleTime.text = formatter.format(session.scheduledDateTime)
+        Picasso.get().load(R.drawable.amor).into(itemView.ivSpecialty)
+        itemView.tvCoacheeName.text = "${session.title} - ${session.coachee?.name}"
+        itemView.btEdit.setOnClickListener{
+            viewModel.onEditScheduledSessionPressed(session)
+        }
+        itemView.btDelete.setOnClickListener{
+            viewModel.onDeleteScheduledSessionPressed(session)
         }
     }
 }

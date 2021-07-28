@@ -10,7 +10,7 @@
     <string name="txt_enviarconvite">ENVIAR CONVITE</string>
     <string name="txt_cobrartx">         COBRAR TAXA DE CANCELAMENTO?</string>
     <string name="schedule"><u>AGENDA</u></string>
-    <string name="next_sessions">Suas próximas sessões:</string>
+    <string name="next_sessions">Sessões neste dia:</string>
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
     <string name="forgot_password">Esqueceu sua senha?</string>
