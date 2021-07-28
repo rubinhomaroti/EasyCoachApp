@@ -4,7 +4,7 @@ import br.com.fiap.easycoachapp.data.coach.useCases.GetCurrentCoach
 import br.com.fiap.easycoachapp.data.login.useCases.CheckUserIsAuthenticated
 import br.com.fiap.easycoachapp.data.login.useCases.DoLogin
 import br.com.fiap.easycoachapp.data.session.useCases.DeleteSession
-import br.com.fiap.easycoachapp.data.session.useCases.GetSessions
+import br.com.fiap.easycoachapp.data.signUp.useCases.DoSignUp
 import br.com.fiap.easycoachapp.viewModel.login.LoginContract
 import br.com.fiap.easycoachapp.viewModel.login.LoginViewModel
 import br.com.fiap.easycoachapp.viewModel.schedule.ScheduleContract
@@ -18,7 +18,6 @@ object ViewModelModules {
             ScheduleViewModel(
                 contract,
                 get<GetCurrentCoach>(),
-                get<GetSessions>(),
                 get<DeleteSession>()
             )}
 
@@ -26,7 +25,8 @@ object ViewModelModules {
             LoginViewModel(
                 contract,
                 get<CheckUserIsAuthenticated>(),
-                get<DoLogin>()
+                get<DoLogin>(),
+                get<DoSignUp>()
             )
         }
     }

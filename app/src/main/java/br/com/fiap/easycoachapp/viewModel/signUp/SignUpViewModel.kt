@@ -15,7 +15,7 @@ class SignUpViewModel(
 
     var name: String = ""
     var birthDate: Date = Date()
-    var sex: Char = 'M'
+    var sex: String = "M"
     var cpf: String = ""
     var contactNumber: String = ""
     var email: String = ""
@@ -36,7 +36,7 @@ class SignUpViewModel(
                 email,
                 password,
                 null,
-                0.10F,
+                0.1,
                 null,
                 null,
                 null,

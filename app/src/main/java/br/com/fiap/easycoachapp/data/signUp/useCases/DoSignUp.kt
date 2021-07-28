@@ -23,7 +23,7 @@ class DoSignUp(
         onSuccessListener: () -> Unit,
         onFailureListener: (DomainError) -> Unit
     ) {
-        if (user.email.isNotBlank() && user.password.isNotBlank()) {
+        if (user.email.isNotBlank() && user.password != null && user.password.isNotBlank()) {
             auth.createUserWithEmailAndPassword(user.email, user.password)
                 .addOnSuccessListener {
                     val currentUser = auth.currentUser
@@ -55,7 +55,7 @@ class DoSignUp(
                 val coach = CoachEntity(
                     uid = currentUser!!.uid,
                     email = currentCoach.email,
-                    password = currentCoach.password,
+                    password = null,
                     name = currentCoach.name,
                     birthDate = currentCoach.birthDate,
                     sex = currentCoach.sex,
@@ -75,7 +75,7 @@ class DoSignUp(
                 val coachee = CoacheeEntity(
                     uid = currentUser!!.uid,
                     email = currentCoachee.email,
-                    password = currentCoachee.password,
+                    password = null,
                     name = currentCoachee.name,
                     birthDate = currentCoachee.birthDate,
                     sex = currentCoachee.sex,

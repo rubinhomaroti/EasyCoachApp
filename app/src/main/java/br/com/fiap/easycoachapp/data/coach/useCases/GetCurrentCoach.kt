@@ -5,7 +5,6 @@ import br.com.fiap.easycoachapp.domain.helpers.DomainError
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 
 class GetCurrentCoach(
     private val auth: FirebaseAuth,
@@ -21,16 +20,13 @@ class GetCurrentCoach(
                 .addOnSuccessListener { documents ->
                     val coach = documents.firstOrNull()
                     if (coach != null) {
-                        val gson = Gson()
-                        val jsonDataSnapshot = gson.toJson(coach.data)
-                        val coachEntity = gson.fromJson(jsonDataSnapshot, CoachEntity::class.java)
-                        onResult(coachEntity)
+                        onResult(CoachEntity.fromJson(coach.data))
                     } else {
                         onFailure(DomainError.AUTH_ERROR)
                     }
                 }
-
+        } else {
+            onFailure(DomainError.AUTH_ERROR)
         }
-        onFailure(DomainError.AUTH_ERROR)
     }
 }

@@ -6,9 +6,9 @@ abstract class UserEntity (
     val uid: String,
     val name: String,
     val birthDate: Date,
-    val sex: Char,
+    val sex: String,
     val cpf: String,
     val contactNumber: String?,
     val email: String,
-    val password: String,
+    val password: String?,
 )

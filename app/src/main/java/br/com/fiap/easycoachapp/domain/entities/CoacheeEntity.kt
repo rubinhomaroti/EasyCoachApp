@@ -7,11 +7,11 @@ class CoacheeEntity (
     uid: String,
     name: String,
     birthDate: Date,
-    sex: Char,
+    sex: String,
     cpf: String,
     contactNumber: String?,
     email: String,
-    password: String,
+    password: String?,
     val sessions: ArrayList<SessionEntity>?,
     val coachs: ArrayList<CoachEntity>?
 ) : UserEntity(uid, name, birthDate, sex, cpf, contactNumber, email, password)

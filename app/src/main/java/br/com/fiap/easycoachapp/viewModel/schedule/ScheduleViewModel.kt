@@ -5,14 +5,12 @@ import androidx.lifecycle.ViewModel
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
-import br.com.fiap.easycoachapp.domain.usecases.session.GetSessionsContract
 import java.util.Date
 import kotlin.collections.ArrayList
 
 class ScheduleViewModel(
     private val contract: ScheduleContract,
     private val getCurrentCoach: GetCurrentCoachContract,
-    private val getSessions: GetSessionsContract,
     private val deleteSession: DeleteSessionContract
 ) : ViewModel() {
     val sessions = MutableLiveData<ArrayList<SessionEntity>>()
@@ -24,14 +22,13 @@ class ScheduleViewModel(
     fun onScheduleDateChanged(selectedDate: Date) {
         this.sessions.value?.clear()
         getCurrentCoach.execute({ coach ->
-            getSessions.execute(coach,{ sessions ->
+            if (coach.sessions != null && coach.sessions.isNotEmpty()) {
                 this.sessions.postValue(
-                    ArrayList(sessions.filter { sessionEntity -> sessionEntity.scheduledDateTime == selectedDate })
+                    ArrayList(coach.sessions.filter { sessionEntity -> sessionEntity.scheduledDateTime == selectedDate })
                 )
-            },
-                {contract.showErrorMessage()})
+            }
         },
-            { contract.showErrorMessage() })
+        { contract.showErrorMessage() })
     }
 
     fun onSchedulePressed() {
