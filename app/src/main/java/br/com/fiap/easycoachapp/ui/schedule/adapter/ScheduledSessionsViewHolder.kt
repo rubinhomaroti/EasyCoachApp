@@ -15,7 +15,7 @@ class ScheduledSessionsViewHolder (itemView: View) : RecyclerView.ViewHolder(ite
         Picasso.get().load(R.drawable.coachee).into(itemView.ivCoacheePhoto)
         itemView.tvScheduleTime.text = formatter.format(session.scheduledDateTime)
         Picasso.get().load(R.drawable.amor).into(itemView.ivSpecialty)
-        itemView.tvCoacheeName.text = "${session.title} - ${session.coachee?.name}"
+        itemView.tvCoacheeName.text = "${session.coachee?.name}\n${session.title}"
         itemView.btEdit.setOnClickListener{
             viewModel.onEditScheduledSessionPressed(session)
         }

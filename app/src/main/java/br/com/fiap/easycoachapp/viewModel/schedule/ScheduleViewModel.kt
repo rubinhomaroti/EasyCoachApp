@@ -2,7 +2,6 @@ package br.com.fiap.easycoachapp.viewModel.schedule
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.fiap.easycoachapp.domain.entities.CoacheeEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract

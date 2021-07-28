@@ -21,16 +21,14 @@
         android:id="@+id/tvScheduleTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto"
-        android:gravity="center_vertical"
         android:text="08:00"
         android:textColor="@color/fixText_blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivSpecialty"
-        app:layout_constraintStart_toEndOf="@+id/ivCoacheePhoto"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivCoacheePhoto"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"/>
 
     <ImageView
         android:id="@+id/ivSpecialty"
@@ -39,20 +37,17 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/amor"
+        android:contentDescription="Ícone da especialidade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvScheduleTime"
-        app:layout_constraintEnd_toStartOf="@id/tvCoacheeName"
-        tools:layout_editor_absoluteX="99dp"
-        android:contentDescription="Ícone da especialidade"/>
+        app:layout_constraintStart_toEndOf="@id/tvScheduleTime"/>
 
     <TextView
         android:id="@+id/tvCoacheeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constrainedWidth="true"
         android:fontFamily="@font/roboto"
-        android:gravity="center_vertical"
-        android:layout_marginStart="8dp"
         android:text="Rubinho Maroti"
         android:textColor="@color/fixText_blue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,33 +56,34 @@
 
     <ImageButton
         android:id="@+id/btEdit"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/btDelete"
         android:src="@drawable/edit"
         android:scaleType="centerInside"
         android:background="@color/white"
-        android:padding="8dp"
+        android:padding="4dp"
         android:contentDescription="Editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageButton
         android:id="@+id/btDelete"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
         android:src="@drawable/trash"
         android:scaleType="centerInside"
         android:background="@color/white"
-        android:padding="8dp"
+        android:padding="4dp"
         android:contentDescription="Deletar"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
