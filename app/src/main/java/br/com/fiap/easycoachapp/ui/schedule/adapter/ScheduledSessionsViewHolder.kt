@@ -1,5 +1,6 @@
 package br.com.fiap.easycoachapp.ui.schedule.adapter
 
+import android.app.AlertDialog
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.easycoachapp.R
@@ -20,7 +21,11 @@ class ScheduledSessionsViewHolder (itemView: View) : RecyclerView.ViewHolder(ite
             viewModel.onEditScheduledSessionPressed(session)
         }
         itemView.btDelete.setOnClickListener{
-            viewModel.onDeleteScheduledSessionPressed(session)
+            AlertDialog.Builder(itemView.context)
+                .setMessage("Deseja realmente apagar a sessão?")
+                .setPositiveButton("Sim") { _, _ -> viewModel.onDeleteScheduledSessionPressed(session)}
+                .setNegativeButton("Cancelar") { dialog, _ -> dialog.dismiss() }
+                .show()
         }
     }
 }

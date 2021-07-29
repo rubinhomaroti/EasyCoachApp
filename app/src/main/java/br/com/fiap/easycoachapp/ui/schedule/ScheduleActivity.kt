@@ -1,6 +1,5 @@
 package br.com.fiap.easycoachapp.ui.schedule
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -60,25 +59,6 @@ class ScheduleActivity : AppCompatActivity(), ScheduleContract {
 
     override fun goToScheduledSessionDetails(session: SessionEntity) {
         Toast.makeText(this, "Em breve...", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun requestConfirmation(message: String): Boolean {
-        var confirmation = false
-
-        val alertDialog: AlertDialog? = this.let {
-            val builder = AlertDialog.Builder(it)
-            builder.apply {
-                setPositiveButton("Sim") { _, _ -> confirmation = true}
-                setNegativeButton("Não") { _, _ -> confirmation = false}
-            }
-            builder.setMessage(message)
-
-            // Create the AlertDialog
-            builder.create()
-        }
-
-        alertDialog?.show()
-        return confirmation
     }
 
     override fun showErrorMessage() {

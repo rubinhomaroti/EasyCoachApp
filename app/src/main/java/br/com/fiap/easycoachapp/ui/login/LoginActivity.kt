@@ -37,7 +37,7 @@ class LoginActivity: AppCompatActivity(), LoginContract {
     }
 
     override fun goToHomeActivity() {
-        startActivity(Intent(this, NewSessionActivity::class.java))
+        startActivity(Intent(this, ScheduleActivity::class.java))
         finish()
     }
 
