@@ -2,9 +2,11 @@ package br.com.fiap.easycoachapp.viewModel.schedule
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.fiap.easycoachapp.data.signUp.useCases.DoSignUp
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
+import br.com.fiap.easycoachapp.domain.usecases.signUp.DoSignUpContract
 import org.joda.time.DateTimeComparator
 import java.util.*
 import kotlin.collections.ArrayList
@@ -35,6 +37,7 @@ class ScheduleViewModel(
 
                     if (s != null && s.isNotEmpty()) {
                         s.forEach {
+                            coachee.coach = coach
                             it.coachee = coachee
                             sessionsFound.add(it)
                         }

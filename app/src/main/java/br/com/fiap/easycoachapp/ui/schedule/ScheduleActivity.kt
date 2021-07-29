@@ -35,6 +35,7 @@ class ScheduleActivity : AppCompatActivity(), ScheduleContract {
     }
 
     private fun setupView() {
+        tvAddSchedule.setOnClickListener{viewModel.onSchedulePressed()}
         rvSessions.adapter = adapter
         rvSessions.layoutManager = LinearLayoutManager(this)
         cvSchedule.setOnDateChangeListener { cv, year, month, dayOfMonth ->
