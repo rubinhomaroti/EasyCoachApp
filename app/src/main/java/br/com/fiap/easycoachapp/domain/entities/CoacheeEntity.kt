@@ -15,6 +15,9 @@ class CoacheeEntity (
     password: String?,
     val sessions: ArrayList<SessionEntity>?,
 ) : UserEntity(uid, name, birthDate, sex, cpf, contactNumber, email, password) {
+
+    var coach: CoachEntity? = null
+
     companion object {
         fun fromJson(json: MutableMap<String, Any>) : CoacheeEntity {
             return CoacheeEntity(

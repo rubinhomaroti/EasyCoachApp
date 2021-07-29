@@ -1,5 +1,6 @@
 package br.com.fiap.easycoachapp.data.session.useCases
 
+import br.com.fiap.easycoachapp.domain.entities.CoachEntity
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
 import com.google.firebase.firestore.FirebaseFirestore
@@ -10,12 +11,20 @@ class DeleteSession (
     override fun execute(
         session: SessionEntity
     ) {
-        db.collection("sessions")
-            .whereEqualTo("uid",session.uid)
+        db.collection("coachs")
+            .whereEqualTo("uid", session.coachee?.coach?.uid)
             .get()
-            .addOnSuccessListener { documents ->
-                val deleteSession = documents.firstOrNull()
-                deleteSession?.reference?.delete()
+            .addOnSuccessListener { coachDocuments ->
+                val coach = coachDocuments.firstOrNull()
+                if (coach != null) {
+                    val coachEntity = CoachEntity.fromJson(coach.data)
+                    val coachee = coachEntity.coachees?.firstOrNull { c -> c.uid == session.coachee?.uid }
+                    val sessionEntity = coachee?.sessions?.firstOrNull{c -> c.uid == session.uid}
+                    if (coachee != null) {
+                        coachee.sessions?.remove(sessionEntity)
+                        coach.reference.set(coachEntity)
+                    }
+                }
             }
     }
 }
