@@ -2,15 +2,12 @@ package br.com.fiap.easycoachapp.viewModel.schedule
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.fiap.easycoachapp.data.signUp.useCases.DoSignUp
 import br.com.fiap.easycoachapp.domain.entities.SessionEntity
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.DeleteSessionContract
-import br.com.fiap.easycoachapp.domain.usecases.signUp.DoSignUpContract
 import org.joda.time.DateTimeComparator
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 class ScheduleViewModel(
     private val contract: ScheduleContract,
@@ -18,6 +15,7 @@ class ScheduleViewModel(
     private val deleteSession: DeleteSessionContract
 ) : ViewModel() {
     val sessions = MutableLiveData<ArrayList<SessionEntity>>()
+    private val sessionsList = ArrayList<SessionEntity>()
 
     fun onCreate() {
         onScheduleDateChanged(Date())
@@ -28,24 +26,25 @@ class ScheduleViewModel(
 
         getCurrentCoach.execute({ coach ->
             if (coach.coachees != null && coach.coachees.isNotEmpty()) {
-                val sessionsFound = ArrayList<SessionEntity>()
-                this.sessions.postValue(sessionsFound)
+                sessionsList.clear()
 
                 coach.coachees.forEach { coachee ->
                     val s = coachee.sessions?.filter {
-                        dateTimeComparator.compare(it.scheduledDateTime, selectedDate) == 0 }
+                        dateTimeComparator.compare(it.scheduledDateTime, selectedDate) == 0
+                    }
 
                     if (s != null && s.isNotEmpty()) {
                         s.forEach {
                             coachee.coach = coach
                             it.coachee = coachee
-                            sessionsFound.add(it)
+                            sessionsList.add(it)
                         }
                     }
                 }
+                sessions.postValue(sessionsList)
             }
         },
-        { contract.showErrorMessage() })
+            { contract.showErrorMessage() })
     }
 
     fun onSchedulePressed() {
@@ -57,8 +56,8 @@ class ScheduleViewModel(
     }
 
     fun onDeleteScheduledSessionPressed(selectedSession: SessionEntity) {
-        if (contract.requestConfirmation("Deseja realmente cancelar a sessão?")) {
-            deleteSession.execute(selectedSession)
-        }
+        deleteSession.execute(selectedSession)
+        sessionsList.remove(selectedSession)
+        sessions.postValue(sessionsList)
     }
 }
