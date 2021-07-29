@@ -3,6 +3,7 @@ package br.com.fiap.easycoachapp.main.di
 import br.com.fiap.easycoachapp.data.coach.useCases.GetCurrentCoach
 import br.com.fiap.easycoachapp.data.login.useCases.CheckUserIsAuthenticated
 import br.com.fiap.easycoachapp.data.login.useCases.DoLogin
+import br.com.fiap.easycoachapp.data.session.useCases.CreateSession
 import br.com.fiap.easycoachapp.data.session.useCases.DeleteSession
 import br.com.fiap.easycoachapp.data.signUp.useCases.DoSignUp
 import com.google.firebase.auth.FirebaseAuth
@@ -16,5 +17,6 @@ object DataModules {
         factory { DoSignUp(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance()) }
         factory { GetCurrentCoach(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance()) }
         factory { DeleteSession(FirebaseFirestore.getInstance()) }
+        factory { CreateSession(FirebaseFirestore.getInstance()) }
     }
 }

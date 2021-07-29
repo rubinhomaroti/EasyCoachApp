@@ -15,6 +15,7 @@ class CoacheeEntity (
     password: String?,
     val sessions: ArrayList<SessionEntity>?,
 ) : UserEntity(uid, name, birthDate, sex, cpf, contactNumber, email, password) {
+
     companion object {
         fun fromJson(json: MutableMap<String, Any>) : CoacheeEntity {
             return CoacheeEntity(
@@ -41,5 +42,9 @@ class CoacheeEntity (
             }
             return sessions
         }
+    }
+
+    override fun toString(): String {
+        return name
     }
 }

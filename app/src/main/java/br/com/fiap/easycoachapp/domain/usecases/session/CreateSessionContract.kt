@@ -5,6 +5,8 @@ import br.com.fiap.easycoachapp.domain.helpers.DomainError
 
 interface CreateSessionContract {
     fun execute(
+        coach: CoachEntity,
+        coachee: CoacheeEntity,
         session: SessionEntity,
         onSuccessListener: () -> Unit,
         onFailureListener: (DomainError) -> Unit)
