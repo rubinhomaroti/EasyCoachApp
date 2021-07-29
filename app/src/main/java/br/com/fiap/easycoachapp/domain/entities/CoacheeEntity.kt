@@ -45,4 +45,8 @@ class CoacheeEntity (
             return sessions
         }
     }
+
+    override fun toString(): String {
+        return name
+    }
 }

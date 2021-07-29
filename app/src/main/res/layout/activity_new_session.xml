@@ -1,222 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.session.register.NewSessionActivity">
-
-    <ScrollView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.fiap.easycoachapp.viewModel.session.create.NewSessionViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.session.register.NewSessionActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvNewSession"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:text="@string/txt_novasessao"
-                android:textAlignment="center"
-                android:textColor="@color/dark_blue"
-                android:textSize="24sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content">
 
-            <TableLayout
-                android:id="@+id/tbNewSession1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toBottomOf="@id/tvNewSession">
-                <TableRow
+                <TextView
+                    android:id="@+id/tvNewSession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <TextView
-                        android:id="@+id/tvSessionScheduledDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/txt_datasessao"
-                        android:textColor="@color/fixText_blue"
-                         />
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/txt_novasessao"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="24sp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tvSessionNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/txt_numdasessao"
-                        android:textColor="@color/fixText_blue"/>
-                </TableRow>
-
-                <TableRow
+                <TableLayout
+                    android:id="@+id/tbNewSession1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <EditText
-                        android:id="@+id/etSessionScheduledDate"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:background="@drawable/bg_edittext"
-                        android:cursorVisible="false"
-                        android:inputType="date" />
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvNewSession">
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+                        <TextView
+                            android:id="@+id/tvSessionScheduledDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/txt_datasessao"
+                            android:textColor="@color/fixText_blue"
+                             />
 
-                    <ListView
-                        android:id="@+id/lvSessionNumber"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="@drawable/bg_edittext" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/tvSessionNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/txt_numdasessao"
+                            android:textColor="@color/fixText_blue"/>
+                    </TableRow>
 
-                <TableRow
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+                        <EditText
+                            android:id="@+id/etSessionScheduledDate"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:padding="8dp"
+                            android:background="@drawable/bg_edittext"
+                            android:cursorVisible="false"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            />
+
+                        <Spinner
+                            android:id="@+id/spSessionNumber"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="4dp"
+                            android:background="@drawable/bg_edittext"
+                            android:spinnerMode="dropdown"
+                            />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+                        <TextView
+                            android:id="@+id/tvCoachee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/txt_coachee"
+                            android:textColor="@color/fixText_blue" />
+
+                        <TextView
+                            android:id="@+id/tvSpeciality"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/roboto"
+                            android:text="@string/txt_especialidade"
+                            android:textColor="@color/fixText_blue"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:id="@+id/spCoachee"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_spinnertext"
+                            android:spinnerMode="dropdown"/>
+
+                        <Spinner
+                            android:id="@+id/spSpecialities"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="4dp"
+                            android:background="@drawable/bg_spinnertext"
+                            android:spinnerMode="dropdown"/>
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/tvSessionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <TextView
-                        android:id="@+id/tvCoachee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/txt_coachee"
-                        android:textColor="@color/fixText_blue" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/txt_titulo"
+                    android:textColor="@color/fixText_blue"
+                    app:layout_constraintTop_toBottomOf="@id/tbNewSession1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-                    <TextView
-                        android:id="@+id/tvSpeciality"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/txt_especialidade"
-                        android:textColor="@color/fixText_blue"/>
-                </TableRow>
+                <EditText
+                    android:id="@+id/etSessionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_edittext"
+                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@id/tvSessionTitle"
+                    android:text="@={viewModel.title}"/>
 
-                <TableRow
+                <TextView
+                    android:id="@+id/tvSessionDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="2">
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/txt_descricao"
+                    android:textColor="@color/fixText_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etSessionTitle" />
 
-                    <Spinner
-                        android:id="@+id/spCoachee"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:background="@drawable/bg_spinnertext"/>
+                <EditText
+                    android:id="@+id/etSessionDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_edittext"
+                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@id/tvSessionDescription"
+                    android:text="@={viewModel.description}"/>
 
-                    <Spinner
-                        android:id="@+id/spSpecialities"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginStart="4dp"
-                        android:background="@drawable/bg_spinnertext"
-                        app:layout_constraintEnd_toStartOf="@+id/guidelineright"
-                        tools:layout_editor_absoluteY="188dp" />
-                </TableRow>
-            </TableLayout>
+                <TextView
+                    android:id="@+id/tvSessionInviteUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/session_link"
+                    android:textColor="@color/fixText_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etSessionDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            <TextView
-                android:id="@+id/tvSessionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/txt_titulo"
-                android:textColor="@color/fixText_blue"
-                app:layout_constraintTop_toBottomOf="@id/tbNewSession1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                <EditText
+                    android:id="@+id/etSessionInviteUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_edittext"
+                    android:inputType="textUri"
+                    app:layout_constraintTop_toBottomOf="@id/tvSessionInviteUrl"
+                    android:text="@={viewModel.inviteUrl}"/>
 
-            <EditText
-                android:id="@+id/etSessionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edittext"
-                android:inputType="textPersonName"
-                app:layout_constraintTop_toBottomOf="@id/tvSessionTitle"/>
+                <CheckBox
+                    android:id="@+id/cbHasCancellationFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/txt_cobrartx"
+                    android:textAlignment="center"
+                    android:textColor="@color/bold_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etSessionInviteUrl"
+                    android:checked="@={viewModel.hasCancellationFee}"/>
 
-            <TextView
-                android:id="@+id/tvSessionDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/txt_descricao"
-                android:textColor="@color/fixText_blue"
-                app:layout_constraintTop_toBottomOf="@id/etSessionTitle" />
+                <Button
+                    android:id="@+id/btSendInvite"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/btn_convite"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/txt_enviarconvite"
+                    app:layout_constraintTop_toBottomOf="@id/cbHasCancellationFee" />
 
-            <EditText
-                android:id="@+id/etSessionDescription"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edittext"
-                android:inputType="textPersonName"
-                app:layout_constraintTop_toBottomOf="@id/tvSessionDescription" />
-
-            <EditText
-                android:id="@+id/etSessionInviteUrl"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_edittext"
-                android:inputType="textPersonName"
-                app:layout_constraintTop_toBottomOf="@id/etSessionDescription"/>
-
-            <CheckBox
-                android:id="@+id/cbHasCancellationFee"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/nunito_bold"
-                android:text="@string/txt_cobrartx"
-                android:textAlignment="center"
-                android:textColor="@color/bold_blue"
-                app:layout_constraintTop_toBottomOf="@id/etSessionInviteUrl" />
-
-            <Button
-                android:id="@+id/btSendInvite"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/btn_convite"
-                android:fontFamily="@font/nunito_bold"
-                android:text="@string/txt_enviarconvite"
-                app:layout_constraintTop_toBottomOf="@id/cbHasCancellationFee" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
