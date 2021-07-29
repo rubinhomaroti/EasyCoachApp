@@ -5,7 +5,6 @@ import br.com.fiap.easycoachapp.domain.entities.*
 import br.com.fiap.easycoachapp.domain.helpers.IdGenerator
 import br.com.fiap.easycoachapp.domain.usecases.coach.GetCurrentCoachContract
 import br.com.fiap.easycoachapp.domain.usecases.session.CreateSessionContract
-import java.text.SimpleDateFormat
 import java.util.Date
 import kotlin.collections.ArrayList
 

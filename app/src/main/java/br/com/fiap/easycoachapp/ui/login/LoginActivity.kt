@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import br.com.fiap.easycoachapp.R
 import br.com.fiap.easycoachapp.databinding.ActivityLoginBinding
 import br.com.fiap.easycoachapp.ui.schedule.ScheduleActivity
-import br.com.fiap.easycoachapp.ui.session.register.NewSessionActivity
 import br.com.fiap.easycoachapp.viewModel.login.LoginContract
 import br.com.fiap.easycoachapp.viewModel.login.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*

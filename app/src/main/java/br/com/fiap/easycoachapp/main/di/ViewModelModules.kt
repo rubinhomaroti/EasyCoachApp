@@ -28,8 +28,7 @@ object ViewModelModules {
             LoginViewModel(
                 contract,
                 get<CheckUserIsAuthenticated>(),
-                get<DoLogin>(),
-                get<DoSignUp>()
+                get<DoLogin>()
             )
         }
 

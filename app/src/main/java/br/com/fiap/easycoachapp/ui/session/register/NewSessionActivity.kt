@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class NewSessionActivity: AppCompatActivity(), NewSessionContract {
+class NewSessionActivity : AppCompatActivity(), NewSessionContract {
     private lateinit var binding: ActivityNewSessionBinding
     private lateinit var coacheesAdapter: ArrayAdapter<CoacheeEntity>
     private lateinit var specialtiesAdapter: ArrayAdapter<SpecialtyEntity>
@@ -41,6 +41,15 @@ class NewSessionActivity: AppCompatActivity(), NewSessionContract {
     }
 
     private fun setupView() {
+        setupScheduleEditText()
+        setupCoacheeSpinner()
+        setupSpecialtiesSpinner()
+        setupSessionNumberSpinner()
+
+        btSendInvite.setOnClickListener { viewModel.onCreateSessionPressed() }
+    }
+
+    private fun setupScheduleEditText() {
         val pattern = "dd/MM/yyyy HH:mm"
         val formatter = SimpleDateFormat(pattern)
 
@@ -50,25 +59,38 @@ class NewSessionActivity: AppCompatActivity(), NewSessionContract {
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
 
-                viewModel.scheduledDateTime = formatter.parse(etSessionScheduledDate.text.toString())
+                viewModel.scheduledDateTime =
+                    formatter.parse(etSessionScheduledDate.text.toString())
             }
         })
         etSessionScheduledDate.setText(formatter.format(Date()))
+    }
 
-        coacheesAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, viewModel.coachees)
+    private fun setupCoacheeSpinner() {
+        coacheesAdapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_item, viewModel.coachees)
         coacheesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spCoachee.adapter = coacheesAdapter
-        spCoachee.onItemSelectedListener = object : OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) { }
+        spCoachee.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 viewModel.selectedCoachee = viewModel.coachees[position]
             }
         }
+    }
 
+    private fun setupSpecialtiesSpinner() {
         specialtiesAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, viewModel.specialties)
         specialtiesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spSpecialities.adapter = specialtiesAdapter
@@ -79,12 +101,16 @@ class NewSessionActivity: AppCompatActivity(), NewSessionContract {
                 viewModel.selectedSpecialty = viewModel.specialties[position]
             }
         }
+    }
 
-        val sessionsNumberAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    private fun setupSessionNumberSpinner() {
+        val sessionsNumberAdapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
         sessionsNumberAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spSessionNumber.adapter = sessionsNumberAdapter
-
-        btSendInvite.setOnClickListener { viewModel.onCreateSessionPressed() }
     }
 
     override fun goToHomeActivity() {

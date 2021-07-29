@@ -14,7 +14,6 @@ object DataModules {
     val modules = module {
         factory { CheckUserIsAuthenticated(FirebaseAuth.getInstance()) }
         factory { DoLogin(FirebaseAuth.getInstance()) }
-        factory { DoSignUp(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance()) }
         factory { GetCurrentCoach(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance()) }
         factory { DeleteSession(FirebaseFirestore.getInstance()) }
         factory { CreateSession(FirebaseFirestore.getInstance()) }
