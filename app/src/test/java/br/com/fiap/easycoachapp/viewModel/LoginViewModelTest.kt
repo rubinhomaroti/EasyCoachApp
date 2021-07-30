@@ -1,6 +1,5 @@
 package br.com.fiap.easycoachapp.viewModel
 
-import br.com.fiap.easycoachapp.data.login.useCases.CheckUserIsAuthenticated
 import br.com.fiap.easycoachapp.domain.helpers.DomainError
 import br.com.fiap.easycoachapp.domain.usecases.login.CheckUserIsAuthenticatedContract
 import br.com.fiap.easycoachapp.domain.usecases.login.DoLoginContract

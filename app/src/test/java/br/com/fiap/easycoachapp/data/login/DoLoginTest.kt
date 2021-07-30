@@ -108,4 +108,11 @@ class DoLoginTest {
 
         Mockito.verify(firebaseAuth, times(1)).signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)
     }
+
+    @Test
+    fun `Should not call signIn with empty e-mail or password`() {
+        sut?.execute("", "", { }, { })
+
+        Mockito.verify(firebaseAuth, times(0)).signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)
+    }
 }

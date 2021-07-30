@@ -57,7 +57,10 @@ class ScheduleViewModel(
 
     fun onDeleteScheduledSessionPressed(selectedSession: SessionEntity) {
         deleteSession.execute(selectedSession)
-        sessionsList.remove(selectedSession)
-        sessions.postValue(sessionsList)
+
+        if (sessionsList.contains(selectedSession)) {
+            sessionsList.remove(selectedSession)
+            sessions.postValue(sessionsList)
+        }
     }
 }
