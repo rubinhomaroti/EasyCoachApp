@@ -31,12 +31,12 @@ class CheckUserIsAuthenticatedTest {
     }
 
     @Test
-    fun `Should return true is firebase auth user is not null`() {
+    fun `Should return true if firebase auth user is not null`() {
         val result = sut?.execute()
         assert(result == true)
     }
     @Test
-    fun `Should return false is firebase auth user is null`() {
+    fun `Should return false if firebase auth user is null`() {
         mockFirebaseAuthFailure()
 
         val result = sut?.execute()
